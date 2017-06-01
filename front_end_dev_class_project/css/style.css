@@ -1,0 +1,152 @@
+/*Basic Styles
+=====================================*/
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto Slab', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-size: 2.5rem;
+  font-family: 'Roboto Slab', sans-serif;
+  margin: 2rem 0;
+}
+h4 {
+  font-size: 1.5rem;
+  line-height: 1;
+  text-transform: uppercase;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+  margin: 1em 0 .5em 0;
+}
+p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+
+/*Class styles
+=====================================*/
+.wrap {
+  padding: 2rem;
+}
+.wrap h2 {
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 1.75rem;
+  color: black;
+}
+.header {
+	background-color: #333333;
+  background-image: url('../img/hero-bg-pizza.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+/*Navigation
+=======================================*/
+
+nav {
+  font-family: 'Roboto Slab', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+nav ul li {
+  display: block;
+}
+nav a {
+  padding: .5rem;
+  display: block;
+}
+nav a:hover {
+  background-color: #871719;
+}
+
+/*Hero button
+========================================*/
+
+.hero-button {
+  font-size: 1.4rem;
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 2px solid #FFFFFF;
+  padding: 6px 12px;
+}
+.hero-button:hover {
+  border-color: #871719;
+  background-color: #871719;
+}
+
+/*Form elements
+========================================*/
+
+form p {
+  font-size: .8rem;
+}
+.mail-list {
+	background-color: #E8D5B5;
+}
+.label,
+.input,
+.button {
+  display: block;
+  width: 100%;
+}
+.label {
+	margin: 0 0 16px 0;
+}
+.input {
+	border: 1px solid #c0af8e;
+  border-radius: 3px;
+  height: 40px;
+  padding: 8px;
+  margin: 0 0 10px 0;
+  font-size: 1rem;
+}
+.button {
+	background-color: #871719;
+  border-radius: 3px;
+  color: #FFFFFF;
+  font-family: 'Roboto Slab', serif;
+  font-size: .8rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  height: 40px;
+}
+.button:hover {
+	color: #800080;
+}
+.small-txt {
+	font-size: .8rem;
+}
+/*Menu styles
+=========================================*/
+
+#foodMenu .menu {
+	width: 100%;
+  font-size: 1.2rem;
+}
+.menu-head {
+  text-align: left;
+}
+.menu-price {
+  color: #871719;
+  font-family: 'Roboto Slab', serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: right;
+}
