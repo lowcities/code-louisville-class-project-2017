@@ -235,13 +235,31 @@ let menuHTML;
 //table.innerHTML = menuHTML;
 
 for (var i = 0; i < menu.Food.length; i++) {
-  console.log(menu.Food[i].name);
+//  console.log(menu.Food[i].name);
+  menuHTML +=
+        `<table class="menu">
+            <thead>
+                <tr>
+                    <th colspan="2">
+                        <h4 class="menu-head red">` +menu.Food[i].name+`</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>`;
   for (var j = 0; j < menu.Food[i].items.length; j++) {
-    console.log(menu.Food[i].items[j].name);
-    console.log(menu.Food[i].items[j].price);
-  }
+//    console.log(menu.Food[i].items[j].name);
+//    console.log(menu.Food[i].items[j].price);
+    menuHTML +=
+            `<tr>
+                <td>`+menu.Food[i].items[j].name+`</td>
+                <td class="menu-price text-right">$`+menu.Food[i].items[j].price.toFixed(2)+`</td>
+             </tr>`;
+    }
+
+    menuHTML += '</tbody></table>';
 }
 
+table.innerHTML = menuHTML;
 
 
 
