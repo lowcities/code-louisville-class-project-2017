@@ -202,65 +202,91 @@ var menu = {
   ]
 }
 
-//variable for the foodMenu div
+
 let table = document.getElementById('foodMenu');
 let menuHTML;
 
-//function for looping through menu object
-//menu.Food.forEach(function(category) {
-////  console.log(category);
-//    menuHTML +=
-//        `<table class="menu">
-//            <thead>
-//                <tr>
-//                    <th colspan="2">
-//                        <h4 class="menu-head red">` +category.name+`</h4>
-//                    </th>
-//                </tr>
-//            </thead>
-//            <tbody>`;
-//
-//    //Looping through each item of the current category.
-//    category.items.forEach(function(item) {
-//        menuHTML +=
-//            `<tr>
-//                <td>`+item.name+`</td>
-//                <td class="menu-price text-right">$`+item.price.toFixed(2)+`</td>
-//             </tr>`;
-//    });
-//
-//    menuHTML += '</tbody></table>'
-//
-//});
-//table.innerHTML = menuHTML;
-
-for (var i = 0; i < menu.Food.length; i++) {
-//  console.log(menu.Food[i].name);
+//Function adds menu categories from the section argument ("Food" or "Beverages") then ivokes the itemAdd function to add the specific items of that category
+function menuCategoryAdd(section) {
+section.forEach(function(category) {
   menuHTML +=
         `<table class="menu">
             <thead>
                 <tr>
                     <th colspan="2">
-                        <h4 class="menu-head red">` +menu.Food[i].name+`</h4>
+                        <h4 class="menu-head red">` +category.name+`</h4>
                     </th>
                 </tr>
             </thead>
             <tbody>`;
-  for (var j = 0; j < menu.Food[i].items.length; j++) {
-//    console.log(menu.Food[i].items[j].name);
-//    console.log(menu.Food[i].items[j].price);
-    menuHTML +=
+  itemAdd(category);
+});
+}
+//Function takes the category as an argument and retrieves and adds the specific items to that category
+function itemAdd(category) {
+    category.items.forEach(function(item) {
+        menuHTML +=
             `<tr>
-                <td>`+menu.Food[i].items[j].name+`</td>
-                <td class="menu-price text-right">$`+menu.Food[i].items[j].price.toFixed(2)+`</td>
+                <td>`+item.name+`</td>
+                <td class="menu-price text-right">$`+item.price.toFixed(2)+`</td>
              </tr>`;
-    }
+    });
 
     menuHTML += '</tbody></table>';
-}
 
+//Adds menu information to the table element
 table.innerHTML = menuHTML;
+}
+//invokes function to add food items to page
+menuCategoryAdd(menu.Food);
+//invokes function to add beverage items to page
+menuCategoryAdd(menu.Beverages);
 
+
+//for (var i = 0; i < menu.Food.length; i++) {
+//  menuHTML +=
+//        `<table class="menu">
+//            <thead>
+//                <tr>
+//                    <th colspan="2">
+//                        <h4 class="menu-head red">` +menu.Food[i].name+`</h4>
+//                    </th>
+//                </tr>
+//            </thead>
+//            <tbody>`;
+//  for (var j = 0; j < menu.Food[i].items.length; j++) {
+//    menuHTML +=
+//            `<tr>
+//                <td>`+menu.Food[i].items[j].name+`</td>
+//                <td class="menu-price text-right">$`+menu.Food[i].items[j].price.toFixed(2)+`</td>
+//             </tr>`;
+//    }
+//
+//    menuHTML += '</tbody></table>';
+//}
+////Adds HTML to the table element
+//table.innerHTML = menuHTML;
+
+
+//Function determines if inputed email address is valid
+function isValidEmailAddress(emailAddress) {
+    var pattern = /^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([ \t]*\r\n)?[ \t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([ \t]*\r\n)?[ \t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+    return pattern.test(emailAddress);
+};
+var valid = $('<p></p>').insertAfter('.input');
+
+$('.input').keyup(function() {
+  //Value of email input
+  var value = $(this).val();
+  //Tests if email is valid
+  if(isValidEmailAddress(value) === true) {
+  //Displays message stating email is valid and adds appropriate css class
+    $(valid).text("Email Address is Valid!").removeClass('inValid').addClass('valid');
+  } else {
+  //Displays message stating email is invalid and adds appropriate css class
+    $(valid).text("Email Address is NOT Valid!").addClass('inValid');
+  }
+});
 
 
 

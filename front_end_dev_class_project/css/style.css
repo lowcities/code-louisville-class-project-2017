@@ -133,6 +133,14 @@ form p {
 .small-txt {
 	font-size: .8rem;
 }
+.valid {
+  color: green;
+  margin: .5rem 0;
+}
+.inValid {
+  color: red;
+  margin: .5rem 0;
+}
 /*Menu styles
 =========================================*/
 
